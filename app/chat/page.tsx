@@ -1,7 +1,6 @@
-import ChatClient from '@/components/chat/ChatClient';
-import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
-import React from 'react';
+import { getServerSession } from 'next-auth';
+import ChatClient from '@/components/chat/ChatClient';
 
 const Chat = async () => {
 	const session = await getServerSession();

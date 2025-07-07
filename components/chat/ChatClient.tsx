@@ -1,7 +1,6 @@
 'use client';
-import React from 'react';
-import AuthButton from '../ui/AuthButton';
 import { signOut } from 'next-auth/react';
+import AuthButton from '../ui/AuthButton';
 
 function ChatClient() {
 	return (

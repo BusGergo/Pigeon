@@ -1,7 +1,6 @@
 'use client';
-import AuthButton from '@/components/ui/AuthButton';
 import { signIn } from 'next-auth/react';
-import React from 'react';
+import AuthButton from '@/components/ui/AuthButton';
 
 const Login = () => {
 	return (
