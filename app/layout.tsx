@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react';
-import { StoreProvider } from './StoreProvider';
 import { getServerSession } from 'next-auth';
+import type { ReactNode } from 'react';
 import SessionProvider from '../components/auth/SessionProvider';
+import { StoreProvider } from './StoreProvider';
 
 import './styles/globals.css';
 import styles from './styles/layout.module.css';

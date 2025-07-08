@@ -2,7 +2,7 @@
 import { signIn } from 'next-auth/react';
 import AuthButton from '@/components/ui/AuthButton';
 
-const Login = () => {
+function Login() {
 	return (
 		<div>
 			<AuthButton
@@ -14,6 +14,6 @@ const Login = () => {
 			</AuthButton>
 		</div>
 	);
-};
+}
 
 export default Login;

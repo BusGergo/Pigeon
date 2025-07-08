@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -9,4 +6,35 @@ generator client {
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(cuid())
+  username  String    @unique
+  email     String?   @unique
+  image     String?
+  messages  Message[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  chats     Chat[]    @relation("ChatUsers")
+}
+
+model Message {
+  id       String   @id @default(cuid())
+  content  String
+  sender   User     @relation(fields: [senderId], references: [id])
+  senderId String
+  chat     Chat?    @relation(fields: [chatId], references: [id])
+  chatId   String?
+  timeSent DateTime @default(now())
+}
+
+model Chat {
+  id        String    @id @default(cuid())
+  name      String?
+  isGroup   Boolean   @default(false)
+  users     User[]    @relation("ChatUsers")
+  messages  Message[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
